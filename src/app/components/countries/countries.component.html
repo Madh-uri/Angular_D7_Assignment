@@ -1,0 +1,30 @@
+<p>countries works!</p>
+
+<table border = "2" cellspacing="5px" cellpadding="5px" align="center" style="font-size: 20px;">
+    <thead style="background-color: aquamarine;">
+        <tr>
+            <th>Capital city</th>
+            <th>Region</th>
+            <th>Currency</th>
+            <th>Flag</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor = "let c of data">
+            <td>{{c.capital}}</td>
+            <td>{{c.region}}</td>
+        
+            <td>
+                <ul>
+                    <ng-container *ngFor="let currency of c.currencies | keyvalue">
+                      <li>{{ currency.key }}:{{currency.value}}
+                      </li>
+                    </ng-container>
+                  </ul>
+            </td>
+            
+            <td>{{c.flag}}</td>
+        </tr>
+    </tbody>
+</table>
